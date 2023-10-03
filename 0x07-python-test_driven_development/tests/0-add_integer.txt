@@ -1,0 +1,30 @@
+# run test with python3 -m doctest -v ./tests/0-add_integer.txt
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1,2)
+3
+>>> add_integer(100, -2)
+98
+>>> add_integer(2)
+100
+>>> add_integer(100.3, -2)
+98
+>>> print(add_integer(1))
+99
+
+""" ERRORS """
+
+>>> add_integer("None", 2)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> print(add_integer(None))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> print(add_integer(None, None))
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
