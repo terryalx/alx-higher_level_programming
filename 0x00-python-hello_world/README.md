@@ -17,6 +17,8 @@ guillaume@ubuntu:~/py/0x00$ ./0-run
 Best School
 guillaume@ubuntu:~/py/0x00$ 
 
+********************************************************************************************************************
+
 1. Run inline
 mandatory
 Score: 65.0% (Checks completed: 100.0%)
@@ -29,6 +31,8 @@ guillaume@ubuntu:~/py/0x00$ ./1-run_inline
 Best School: 98
 guillaume@ubuntu:~/py/0x00$ 
 
+*******************************************************************************************************************
+
 2. Hello, print
 mandatory
 Score: 100.0% (Checks completed: 100.0%)
@@ -38,6 +42,8 @@ Use the function print
 guillaume@ubuntu:~/py/0x00$ ./2-print.py 
 "Programming is like building a multilingual puzzle
 guillaume@ubuntu:~/py/0x00$
+
+*******************************************************************************************************************
 
 3. Print integer
 mandatory
@@ -55,6 +61,8 @@ guillaume@ubuntu:~/py/0x00$ ./3-print_number.py
 98 Battery street
 guillaume@ubuntu:~/py/0x00$ 
 
+*******************************************************************************************************************
+
 4. Print float
 mandatory
 Score: 65.0% (Checks completed: 100.0%)
@@ -69,6 +77,8 @@ You have to use f-strings
 guillaume@ubuntu:~/py/0x00$ ./4-print_float.py
 Float: 3.14
 guillaume@ubuntu:~/py/0x00$ 
+
+*******************************************************************************************************************
 
 5. Print string
 mandatory
@@ -88,6 +98,8 @@ Holberton SchoolHolberton SchoolHolberton School
 Holberton
 guillaume@ubuntu:~/py/0x00$ 
 
+*******************************************************************************************************************
+
 6. Play with strings
 mandatory
 Score: 65.0% (Checks completed: 100.0%)
@@ -102,6 +114,8 @@ Welcome to Holberton School!
 guillaume@ubuntu:~/py/0x00$ wc -l 6-concat.py
 5 6-concat.py
 guillaume@ubuntu:~/py/0x00$ 
+
+*******************************************************************************************************************
 
 7. Copy - Cut - Paste
 mandatory
@@ -122,6 +136,8 @@ guillaume@ubuntu:~/py/0x00$ wc -l 7-edges.py
 8 7-edges.py
 guillaume@ubuntu:~/py/0x00$ 
 
+*******************************************************************************************************************
+
 8. Create a new sentence
 mandatory
 Score: 65.0% (Checks completed: 100.0%)
@@ -137,6 +153,8 @@ object-oriented programming with Python
 guillaume@ubuntu:~/py/0x00$ wc -l 8-concat_edges.py
 5 8-concat_edges.py
 guillaume@ubuntu:~/py/0x00$ 
+
+*******************************************************************************************************************
 
 9. Easter Egg
 mandatory
@@ -167,6 +185,8 @@ If the implementation is hard to explain, it's a bad idea.
 If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 guillaume@ubuntu:~/py/0x00$
+
+*******************************************************************************************************************
 
 10. Linked list cycle
 mandatory
@@ -348,6 +368,8 @@ GitHub repository: alx-higher_level_programming
 Directory: 0x00-python-hello_world
 File: 10-check_cycle.c, lists.h
 
+*******************************************************************************************************************
+
 11. Hello, write
 #advanced
 Score: 65.0% (Checks completed: 100.0%)
@@ -365,6 +387,8 @@ guillaume@ubuntu:~/py/0x00$ ./100-write.py 2> q
 guillaume@ubuntu:~/py/0x00$ cat q
 and that piece of art is useful - Dora Korpar, 2015-10-19
 guillaume@ubuntu:~/py/0x00$ 
+
+*******************************************************************************************************************
 
 12. Compile
 #advanced
@@ -398,6 +422,8 @@ guillaume@ubuntu:~/py/0x00$ od -t x1 main.pyc # SYSTEM DEPENDANT => CAN BE DIFFE
 0000172
 guillaume@ubuntu:~/py/0x00$ 
 
+*******************************************************************************************************************
+
 13. ByteCode -> Python #1
 #advanced
 Score: 65.0% (Checks completed: 100.0%)
@@ -410,5 +436,4 @@ Write the Python function def magic_calculation(a, b): that does exactly the sam
              10 BINARY_ADD
              11 RETURN_VALUE
 Tip: Python bytecode
-
 
