@@ -1,38 +1,41 @@
 #!/usr/bin/python3
+
 import sys
+import signal
+from collections import defaultdict
 
+file_size = 0
+status_codes = defaultdict(int)
+line_counter = 0
 
-def print_status():
-    '''
-        Printing the status of the request
-    '''
-    counter = 0
-    size = 0
-    file_size = 0
-    status_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
-                    "403": 0, "404": 0, "405": 0, "500": 0}
+def print_statistics():
+    global file_size, status_codes, line_counter
+    print(f"File size: {file_size}")
+    for code in sorted(status_codes.keys()):
+        if status_codes[code] > 0:
+            print(f"{code}: {status_codes[code]}")
+    print("")
 
-    for l in sys.stdin:
-        line = l.split()
+def signal_handler(signal, frame):
+    print_statistics()
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+
+for line in sys.stdin:
+    parts = line.split()
+    if len(parts) >= 9:
         try:
-            size += int(line[-1])
-            code = line[-2]
-            status_codes[code] += 1
-        except:
-            continue
-        if counter == 9:
-            print("File size: {}".format(size))
-            for key, val in sorted(status_codes.items()):
-                if (val != 0):
-                    print("{}: {}".format(key, val))
-            counter = 0
-        counter += 1
-    if counter < 9:
-        print("File size: {}".format(size))
-        for key, val in sorted(status_codes.items()):
-            if (val != 0):
-                print("{}: {}".format(key, val))
+            status_code = parts[-2]
+            size = int(parts[-1])
+            file_size += size
+            status_codes[status_code] += 1
+            line_counter += 1
+        except (ValueError, IndexError):
+            pass
 
+    if line_counter >= 10:
+        print_statistics()
+        line_counter = 0
 
-if __name__ == "__main__":
-    print_status()
+print_statistics()
