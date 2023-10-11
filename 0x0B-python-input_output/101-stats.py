@@ -1,41 +1,52 @@
 #!/usr/bin/python3
-
 import sys
-import signal
-from collections import defaultdict
 
+
+def print_info():
+    print('File size: {:d}'.format(file_size))
+
+    for scode, code_times in sorted(status_codes.items()):
+        if code_times > 0:
+            print('{}: {:d}'.format(scode, code_times))
+
+
+status_codes = {
+    '200': 0,
+    '301': 0,
+    '400': 0,
+    '401': 0,
+    '403': 0,
+    '404': 0,
+    '405': 0,
+    '500': 0
+}
+
+linecount = 0
 file_size = 0
-status_codes = defaultdict(int)
-line_counter = 0
 
-def print_statistics():
-    global file_size, status_codes, line_counter
-    print(f"File size: {file_size}")
-    for code in sorted(status_codes.keys()):
-        if status_codes[code] > 0:
-            print(f"{code}: {status_codes[code]}")
-    print("")
+try:
+    for line in sys.stdin:
+        if linecount != 0 and linecount % 10 == 0:
+            print_info()
 
-def signal_handler(signal, frame):
-    print_statistics()
-    sys.exit(0)
+        pieces = line.split()
 
-signal.signal(signal.SIGINT, signal_handler)
-
-for line in sys.stdin:
-    parts = line.split()
-    if len(parts) >= 9:
         try:
-            status_code = parts[-2]
-            size = int(parts[-1])
-            file_size += size
-            status_codes[status_code] += 1
-            line_counter += 1
-        except (ValueError, IndexError):
+            status = int(pieces[-2])
+
+            if str(status) in status_codes.keys():
+                status_codes[str(status)] += 1
+        except:
             pass
 
-    if line_counter >= 10:
-        print_statistics()
-        line_counter = 0
+        try:
+            file_size += int(pieces[-1])
+        except:
+            pass
 
-print_statistics()
+        linecount += 1
+
+    print_info()
+except KeyboardInterrupt:
+    print_info()
+    raise
