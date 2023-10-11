@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 
-"""importing BaseGeometry & Rectangle"""
+"""importing Rectangle"""
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
 Rectangle = __import__('9-rectangle').Rectangle
 
-"""Subclass"""
+"""Write a class square that inherites from rectangle"""
 
 
 class Square(Rectangle):
@@ -17,9 +16,9 @@ class Square(Rectangle):
         self.__size = size
 
     def area(self):
-        """returns area of a given square"""
+        """returns area of a square"""
         return self.__size ** 2
 
     def __str__(self):
-        """Formated readable description"""
-        return "[Square] {:d}/{:d}".format(self.__size, self.__size)
+        """Return and print the square description"""
+        return str("[Square] {:d}/{:d}".format(self.__size, self.__size))
