@@ -5,7 +5,7 @@
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 Rectangle = __import__('9-rectangle').Rectangle
 
-"""Subclass"""
+"""Write a class square that inherites from rectangle"""
 
 
 class Square(Rectangle):
@@ -17,5 +17,5 @@ class Square(Rectangle):
         self.__size = size
 
     def area(self):
-        """returns area of a given square"""
+        """returns area of a square"""
         return self.__size ** 2
