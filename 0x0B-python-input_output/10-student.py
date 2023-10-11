@@ -1,32 +1,32 @@
 #!/usr/bin/python3
-'''
+
+"""
 Class Student
-'''
+"""
 
 
 class Student:
-    '''
-    module of class student
-    '''
-
+    """
+    Defines a class Student
+    """
     def __init__(self, first_name, last_name, age):
-        '''
-        __init__ method
-        '''
+        """
+        initializes the attributes of class Student
+        """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        '''
-        method to_json
-        prints all attrs if list is empty
-        '''
+        """
+        gets the dictionary representation of a Student instance
+        """
         if attrs is None:
             return self.__dict__
+
         else:
-            attr_list = {}
-            for l in attrs:
-                if hasattr(self, l):
-                    attr_list[attr] = getattr(self, attr)
-            return attr_list
+            d_list = {}
+            for attr in attrs:
+                if hasattr(self, attr):
+                    d_list[attr] = getattr(self, attr)
+            return d_list
