@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-Contains the class BaseGeometry
+Module docs
 """
+
 
 class BaseGeometry():
     """
@@ -10,13 +11,17 @@ class BaseGeometry():
 
     def area(self):
         """
-        Function Raises:
+        Function
+
+        Raises:
             Exception: all the time
         """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """
+        function doc
+
         Args:
             name (str): string
             value (int): intger
