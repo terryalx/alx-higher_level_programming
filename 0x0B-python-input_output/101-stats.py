@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+
 import sys
 
-
 def print_info():
+    """
+    print call
+    """
     print('File size: {:d}'.format(file_size))
 
     for scode, code_times in sorted(status_codes.items()):
@@ -21,12 +24,12 @@ status_codes = {
     '500': 0
 }
 
-lc = 0
+count = 0
 file_size = 0
 
 try:
     for line in sys.stdin:
-        if lc != 0 and lc % 10 == 0:
+        if count != 0 and count % 10 == 0:
             print_info()
 
         pieces = line.split()
@@ -44,7 +47,7 @@ try:
         except:
             pass
 
-        lc += 1
+        count += 1
 
     print_info()
 except KeyboardInterrupt:
