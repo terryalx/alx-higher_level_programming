@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import sys
 
 
@@ -12,22 +11,22 @@ def print_info():
 
 
 status_codes = {
-        '200': 0,
-        '301': 0,
-        '400': 0,
-        '401': 0,
-        '403': 0,
-        '404': 0,
-        '405': 0,
-        '500': 0
-        }
+    '200': 0,
+    '301': 0,
+    '400': 0,
+    '401': 0,
+    '403': 0,
+    '404': 0,
+    '405': 0,
+    '500': 0
+}
 
-count = 0
+lc = 0
 file_size = 0
 
 try:
     for line in sys.stdin:
-        if count != 0 and count % 10 == 0:
+        if lc != 0 and lc % 10 == 0:
             print_info()
 
         pieces = line.split()
@@ -45,7 +44,7 @@ try:
         except:
             pass
 
-        count += 1
+        lc += 1
 
     print_info()
 except KeyboardInterrupt:
