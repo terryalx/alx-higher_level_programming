@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 import sys
 
 
@@ -21,12 +22,12 @@ status_codes = {
         '500': 0
         }
 
-linecount = 0
+count = 0
 file_size = 0
 
 try:
     for line in sys.stdin:
-        if linecount != 0 and linecount % 10 == 0:
+        if count != 0 and count % 10 == 0:
             print_info()
 
         pieces = line.split()
@@ -44,7 +45,7 @@ try:
         except:
             pass
 
-        linecount += 1
+        count += 1
 
     print_info()
 except KeyboardInterrupt:
