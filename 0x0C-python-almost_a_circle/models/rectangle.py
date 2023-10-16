@@ -123,11 +123,14 @@ class Rectangle(Base):
     def area(self):
         """
         Get area of the Rectangle
+        width * height
         """
-        return self.__width * self.__height
+        return (self.__width * self.__height)
 
     def display(self):
-        """print # to the stdout"""
+        """
+        print # to the stdout
+        """
         for _ in range(self.__y):
             print()
         for i in range(self.__height):
@@ -139,28 +142,40 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        """"overriding __str__()"""
+        """"
+        overriding __str__()
+        """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.__x, self.__y, self.__width, self.__height)
+                self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args, **kwargs):
-        """"assigns an argument to each attribute"""
+        def update(self, *args, **kwargs):
+            """
+        assigns key/value argument to attributes
+        kwargs is skipped if args is not empty
+            Args:
+                *args -  variable number of no-keyword args
+                **kwargs - variable number of keyworded args
+        """
+        if len(args) == 0:
+            for key, val in kwargs.items():
+                self.__setattr__(key, val)
+            return
 
-        up = ["id", "width", "height", "x", "y"]
-        if (args):
-            for i in range(len(args)):
-                setattr(self, up[i], args[i])
-
-        else:
-            for k in kwargs:
-                setattr(self, k, kwargs[k])
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass
 
     def to_dictionary(self):
         """Returns dict representation of a Rectangle"""
         return {
-            "x": self.x,
-            "y": self.__y,
-            "id": self.id,
-            "height": self.__height,
-            'width': self.__width,
-        }
+                "x": self.x,
+                "y": self.__y,
+                "id": self.id,
+                "height": self.__height,
+                'width': self.__width,
+                }
