@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 Unittest for Base Class
-# run with python3 -m unittest discover tests
-# run with python3 -m unittest tests/test_models/test_base.py
+run: python3 -m unittest discover tests
+run: python3 -m unittest tests/test_models/test_base.py
 """
 
 import os
@@ -18,44 +18,44 @@ class TestBase_instantiation(unittest.TestCase):
     """
 
     def test_no_arg(self):
-        b1 = Base()
-        b2 = Base()
-        self.assertEqual(b1.id, b2.id - 1)
+        base1 = Base()
+        base2 = Base()
+        self.assertEqual(base1.id, base2.id - 1)
 
     def test_three_bases(self):
-        b1 = Base()
-        b2 = Base()
-        b3 = Base()
-        self.assertEqual(b1.id, b3.id - 2)
+        base1 = Base()
+        base2 = Base()
+        base3 = Base()
+        self.assertEqual(base1.id, base3.id - 2)
 
     def test_None_id(self):
-        b1 = Base(None)
-        b2 = Base(None)
-        self.assertEqual(b1.id, b2.id - 1)
+        base1 = Base(None)
+        base2 = Base(None)
+        self.assertEqual(base1.id, base2.id - 1)
 
     def test_unique_id(self):
-        self.assertEqual(12, Base(12).id)
+        self.assertEqual(10, Base(10).id)
 
     def test_nb_instances_after_unique_id(self):
-        b1 = Base()
-        b2 = Base(12)
-        b3 = Base()
-        self.assertEqual(b1.id, b3.id - 1)
+        base1 = Base()
+        base2 = Base(10)
+        base3 = Base()
+        self.assertEqual(base1.id, base3.id - 1)
 
     def test_id_public(self):
-        b = Base(12)
-        b.id = 15
-        self.assertEqual(15, b.id)
+        base = Base(10)
+        base.id = 15
+        self.assertEqual(15, base.id)
 
     def test_nb_instances_private(self):
         with self.assertRaises(AttributeError):
-            print(Base(12).__nb_instances)
+            print(Base(10).__nb_instances)
 
     def test_str_id(self):
-        self.assertEqual("hello", Base("hello").id)
+        self.assertEqual("hello_world", Base("hello_world").id)
 
     def test_float_id(self):
-        self.assertEqual(5.5, Base(5.5).id)
+        self.assertEqual(2.5, Base(2.5).id)
 
     def test_complex_id(self):
         self.assertEqual(complex(5), Base(complex(5)).id)
