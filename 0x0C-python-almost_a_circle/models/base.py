@@ -26,14 +26,22 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Returns the json string representation of list_dictionaries"""
+        """
+        Returns the json string representation of list_dictionaries
+        Args:
+            list_dictionaries (list): A list of dictionaries
+        """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """writes the JSON string representation of list_objs to a file"""
+        """
+        writes the JSON string representation of list_objs to a file
+        Args:
+            list_objs (list): A list of inherited Base instances
+        """
         if list_objs is None:
             list_objs = []
         filename = cls.__name__ + ".json"
@@ -44,7 +52,14 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """returns the list of the JSON string representation json_string"""
+        """
+        List of the JSON string representation json_string
+        Args:
+            json_string (str): A JSON str representation of a list of dicts
+        Returns:
+            If json_string is None or empty - an empty list.
+            Otherwise - the Python list represented by json_string
+        """
         if json_string is None or json_string == []:
             return []
         else:
@@ -52,17 +67,28 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """returns an instance with all attributes already set"""
-        if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1)
-        else:
-            dummy = cls(1)
-        dummy.update(**dictionary)
-        return (dummy)
+        """
+        a class instantied from a dictionary of attributes
+        Args:
+            **dictionary (dict): Key/value pairs of attributes to initialize
+        """
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                new = cls(1, 1)
+            else:
+                new = cls(1)
+            new.update(**dictionary)
+            return new
 
     @classmethod
     def load_from_file(cls):
-        """returns a list of instances"""
+        """
+        returns a list of instances
+        Reads from `<cls.__name__>.json`
+        Returns:
+            If the file does not exist - an empty list.
+            Otherwise - a list of instantiated classes
+        """
         try:
             with open(cls.__name__ + ".json", "r") as file:
                 list = cls.from_json_string(file.read())
@@ -72,7 +98,9 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """saves a list of objects to a CSV file"""
+        """
+        saves a list of objects to a CSV file
+        """
         filename = cls.__name__ + ".csv"  # creates a filename for the CSV file
         with open(filename, "w", newline="") as file:
             if list_objs is None or list_objs == []:
