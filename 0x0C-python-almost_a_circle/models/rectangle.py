@@ -148,8 +148,8 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id, self.__x, self.__y, self.__width, self.__height)
 
-        def update(self, *args, **kwargs):
-            """
+    def update(self, *args, **kwargs):
+        """
         assigns key/value argument to attributes
         kwargs is skipped if args is not empty
             Args:
@@ -171,7 +171,9 @@ class Rectangle(Base):
             pass
 
     def to_dictionary(self):
-        """Returns dict representation of a Rectangle"""
+        """
+        Returns dict representation of a Rectangle
+        """
         return {
                 "x": self.x,
                 "y": self.__y,
