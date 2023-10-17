@@ -100,27 +100,27 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """
         saves a list of objects to a CSV file
+        Args:
+            list_objs (list): A list of inherited Base instances
         """
-        filename = cls.__name__ + ".csv"  # creates a filename for the CSV file
+        filename = cls.__name__ + ".csv"
         with open(filename, "w", newline="") as file:
             if list_objs is None or list_objs == []:
-                file.write("[]")  # Return an empty list
+                file.write("[]")
             else:
                 if cls.__name__ == "Rectangle":
-                    # assign fieldnames depending on the object
                     fieldnames = ["id", "width", "height", "x", "y"]
                 else:
                     fieldnames = ["id", "size", "x", "y"]
 
-                # write dictionaries to the CSV file
                 writer = csv.DictWriter(file, fieldnames=fieldnames)
                 for obj in list_objs:
-                    # converts the object to a dictionary
                     writer.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
-        """reads data from a CSV file and
+        """
+        reads data from a CSV file and
         returns a list of instantiated classes
         """
         filename = cls.__name__ + ".csv"
@@ -144,7 +144,8 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """Draw Rectangles and Squares using the turtle module.
+        """
+        Draw Rectangles and Squares using the turtle module.
         Args:
             list_rectangles (list): A list of Rectangle objects to draw.
             list_squares (list): A list of Square objects to draw.
