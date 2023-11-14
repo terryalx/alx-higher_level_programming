@@ -1,3 +1,3 @@
--- File that is used to describes a table in a db
--- The corresponding query for the above
-DESCRIBE first_table;
+-- Show the create table statement
+-- Execute: cat 5-full_table.sql | mysql -hlocalhost -uroot -p hbtn_0c_0
+SHOW CREATE TABLE first_table;
