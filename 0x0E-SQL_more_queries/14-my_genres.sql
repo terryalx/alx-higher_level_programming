@@ -4,7 +4,7 @@
 -- Results must be sorted in ascending order by the genre name
 -- You can use only one SELECT statement
 -- The database name will be passed as an argument of the mysql command
--- Execute: cat 11-genre_id_all_shows.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows
+-- Execute: cat 14-my_genres.sql | mysql -hlocalhost -uroot -p hbtn_0d_tvshows
 SELECT tv_genres.name
 FROM tv_genres
 INNER JOIN tv_show_genres
