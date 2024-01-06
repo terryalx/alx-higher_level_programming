@@ -1,4 +1,3 @@
 #!/bin/bash
-# curl to send a request and receive the content-length
-
-curl -s -w "%{size_download}\n" -o /dev/null ${1}
+#Takes in a URL and send a request to it
+curl -s "$1" | wc -c
